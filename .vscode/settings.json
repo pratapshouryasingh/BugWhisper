@@ -1,0 +1,5 @@
+{
+    "workbench.editor.decorations.colors": true,
+    "workbench.editor.limit.excludeDirty": false,
+    "window.density.editorTabHeight": "compact"
+}
