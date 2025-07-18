@@ -28,6 +28,15 @@ mongoose.connect(process.env.MONGO_URI, {
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
+// ✅ Routes to keep server alive (UptimeRobot friendly)
+app.get("/", (req, res) => {
+  res.status(200).send("Server is alive!");
+});
+
+app.head("/", (req, res) => {
+  res.status(200).end();
+});
+
 // ✅ Mount routes
 app.use("/analyze", analyzeRoute);
 app.use("/search", searchRoute);
