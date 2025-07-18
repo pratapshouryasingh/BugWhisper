@@ -11,7 +11,7 @@ const app = express();
 
 // ✅ Configure CORS
 app.use(cors({
-  origin: process.env.FRONTEND_ORIGIN || "http://localhost:5173",
+  origin: process.env.FRONTEND_ORIGIN || "https://bug-whisper.vercel.app",
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
