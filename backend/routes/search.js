@@ -10,11 +10,13 @@ router.post("/", clerkAuth, async (req, res) => {
   const clerkUserId = req.auth?.userId;
 
   if (!query || !result) {
-    return res.status(400).json({ error: "❌ Query and result are required." });
+    console.log("❌ Missing query or result:", req.body);
+    return res.status(400).json({ error: "Query and result are required." });
   }
 
   try {
     const saved = await Search.create({ clerkUserId, query, result });
+    console.log("✅ Search saved for user:", clerkUserId);
     res.status(201).json({ success: true, id: saved._id });
   } catch (err) {
     console.error("❌ Save search error:", err);
@@ -36,6 +38,7 @@ router.get("/", clerkAuth, async (req, res) => {
 
     const total = await Search.countDocuments({ clerkUserId });
 
+    console.log(`📦 Fetched ${data.length} history items for user: ${clerkUserId}`);
     res.json({ total, page, limit, data });
   } catch (err) {
     console.error("❌ Fetch history error:", err);

@@ -1,6 +1,6 @@
 import { useAuth } from "@clerk/clerk-react";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_BASE || "https://bugwhisper.onrender.com";
 
 /**
  * Hook to make authenticated API calls with Clerk + auto JSON handling.
